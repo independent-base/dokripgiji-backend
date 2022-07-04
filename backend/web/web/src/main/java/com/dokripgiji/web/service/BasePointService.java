@@ -1,9 +1,9 @@
 package com.dokripgiji.web.service;
 
-import com.dokripgiji.web.domain.address.Address;
-import com.dokripgiji.web.domain.address.AddressRepository;
-import com.dokripgiji.web.controller.dto.AddressRequestDto;
-import com.dokripgiji.web.controller.dto.AddressResponseDto;
+import com.dokripgiji.web.domain.basepoint.BasePoint;
+import com.dokripgiji.web.domain.basepoint.BasePointRepository;
+import com.dokripgiji.web.controller.dto.BasePointRequestDto;
+import com.dokripgiji.web.controller.dto.BasePointResponseDto;
 import com.dokripgiji.web.domain.user.User;
 import com.dokripgiji.web.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,21 +13,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
-public class AddressService {
+public class BasePointService {
 
     @Autowired
     private final UserRepository userRepository;
 
     @Autowired
-    private final AddressRepository addressRepository;
+    private final BasePointRepository addressRepository;
 
-    public AddressResponseDto buildResponseDto(Address adr){
-        return new AddressResponseDto(adr);
+    public BasePointResponseDto buildResponseDto(BasePoint adr){
+        return new BasePointResponseDto(adr);
     }
 
 
     @Transactional
-    public AddressResponseDto saveAddress(AddressRequestDto requestDto){
+    public BasePointResponseDto saveAddress(BasePointRequestDto requestDto){
 
         Double longitude = requestDto.getLongitude();
         Double latitude = requestDto.getLatitude();
@@ -35,16 +35,15 @@ public class AddressService {
 
         User user = userRepository.getByUserId(requestDto.getUserId());
 
-        Address adr = Address.builder()
+        BasePoint adr = BasePoint.builder()
                 .user(user)
                 .longitude(longitude)
                 .latitude(latitude)
-                .n(n)
                 .build();
 
         System.out.println(requestDto.getUserId());
 
-        Address resAdr = addressRepository.save(adr);
+        BasePoint resAdr = addressRepository.save(adr);
 
         return buildResponseDto(resAdr);
     }

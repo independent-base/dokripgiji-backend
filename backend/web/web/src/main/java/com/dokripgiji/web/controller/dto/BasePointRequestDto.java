@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AddressRequestDto {
+public class BasePointRequestDto {
 
     private Long userId;
     private Double longitude;
@@ -16,7 +16,7 @@ public class AddressRequestDto {
     private int n;
 
     @Builder
-    public AddressRequestDto(Long userId, Double longitude, Double latitude, int n) {
+    public BasePointRequestDto(Long userId, Double longitude, Double latitude, int n) {
         this.userId = userId;
         this.longitude = longitude;
         this.latitude = latitude;

@@ -1,8 +1,6 @@
 package com.dokripgiji.web.service;
 
-import com.dokripgiji.web.controller.dto.AddressRequestDto;
-import com.dokripgiji.web.domain.user.User;
-import com.google.gson.JsonArray;
+import com.dokripgiji.web.controller.dto.BasePointRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,13 +10,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
 public class MapboxService {
 
-    public JSONArray MapboxFilter(AddressRequestDto requestDto) {
+    public JSONArray MapboxFilter(BasePointRequestDto requestDto) {
 
         String MapboxURL = "https://api.mapbox.com/isochrone/v1";
         String profile = "/mapbox/walking";
