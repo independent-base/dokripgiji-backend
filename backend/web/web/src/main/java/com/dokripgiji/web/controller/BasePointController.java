@@ -6,11 +6,13 @@ import com.dokripgiji.web.service.BasePointService;
 import com.dokripgiji.web.service.MapboxService;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONArray;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
-@RequiredArgsConstructor
 @RestController
-@RequestMapping("/adr")
+@RequiredArgsConstructor
+@RequestMapping("/base")
 public class BasePointController {
 
     private final BasePointService basePointService;

@@ -1,8 +1,5 @@
 package com.dokripgiji.web.controller.api;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -18,7 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 
 public class KakaoAPI {
-
 
     public String getAccessToken(String code) {
         String accessToken = "";
@@ -69,7 +65,7 @@ public class KakaoAPI {
     }
 
 
-    public HashMap<String, Object> getUserInfo(String accessToken) {
+    public HashMap<String, Object> getUserInfo(String accessToken) throws IOException {
         HashMap<String, Object> userInfo = new HashMap<String, Object>();
         String reqUrl = "https://kapi.kakao.com/v2/user/me";
         try {
