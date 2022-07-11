@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @NoArgsConstructor
-@DynamicInsert
+@Table(name = "BasePoint")
 public class BasePoint {
 
     @Id
