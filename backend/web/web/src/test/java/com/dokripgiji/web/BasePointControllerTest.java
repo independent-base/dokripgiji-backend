@@ -5,6 +5,8 @@ import com.dokripgiji.web.domain.user.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 public class BasePointControllerTest extends BaseControllerTest{
@@ -32,8 +35,8 @@ public class BasePointControllerTest extends BaseControllerTest{
         User user=new User();
 
         data.put("basesId",1);
-        data.put("userId", user);
-        data.put("address",126.299942);
+        data.put("userId", 1);
+        data.put("address","126.299942");
         data.put("longitude",126.299942);
         data.put("latitude",37.111);
         data.put("n",10);
@@ -43,8 +46,7 @@ public class BasePointControllerTest extends BaseControllerTest{
 
         ResultActions resultActions=mockMvc.perform(post("/base")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(data)));
-
-        System.out.println("resultActions = " + resultActions);
+                .content(objectMapper.writeValueAsString(data)))
+                .andExpect(status().isOk());
     }
 }

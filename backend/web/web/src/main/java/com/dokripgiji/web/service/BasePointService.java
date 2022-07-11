@@ -29,6 +29,7 @@ public class BasePointService {
     @Transactional
     public BasePointResponseDto saveAddress(BasePointRequestDto requestDto){
 
+        String address= requestDto.getAddress();
         Double longitude = requestDto.getLongitude();
         Double latitude = requestDto.getLatitude();
         int n = requestDto.getN();
@@ -37,6 +38,7 @@ public class BasePointService {
 
         BasePoint adr = BasePoint.builder()
                 .user(user)
+                .address(address)
                 .longitude(longitude)
                 .latitude(latitude)
                 .build();

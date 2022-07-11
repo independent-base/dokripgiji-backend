@@ -4,12 +4,15 @@ import com.dokripgiji.web.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
 @Getter
 @Entity
 @NoArgsConstructor
+@DynamicInsert
 public class BasePoint {
 
     @Id
@@ -18,7 +21,7 @@ public class BasePoint {
     private Long basesId;
 
     @ManyToOne(targetEntity = User.class) //단반향
-    @JoinColumn(name = "userId", updatable = false)
+    @JoinColumn(name = "user", updatable = false)
     private User user;
 
     @Column(name = "field",nullable = false)
