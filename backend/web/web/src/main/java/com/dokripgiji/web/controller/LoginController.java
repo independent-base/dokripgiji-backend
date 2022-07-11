@@ -1,5 +1,6 @@
 package com.dokripgiji.web.controller;
 
+/*
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -58,3 +59,5 @@ public class LoginController {
         return mav;
     }
 }
+
+ */
