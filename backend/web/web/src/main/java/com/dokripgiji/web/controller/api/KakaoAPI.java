@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 
+/*
 public class KakaoAPI {
 
     public String getAccessToken(String code) {
@@ -90,9 +91,9 @@ public class KakaoAPI {
             JSONObject properties = jObject.getJSONObject("properties");
 
             String email = kakaoAccount.getString("email");
-            String nickname = properties.getString("nickname");
+            String name = properties.getString("nickname");
 
-            User user=User.builder().email(email).nickname(nickname).build();
+            User user=User.builder().email(email).name(name).build();
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
@@ -131,3 +132,5 @@ public class KakaoAPI {
     }
 
 }
+
+ */
