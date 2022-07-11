@@ -1,5 +1,7 @@
 package com.dokripgiji.web.controller;
 
+/*
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -22,7 +24,7 @@ public class LoginController {
     KakaoAPI kakaoApi = new KakaoAPI();
 
     @RequestMapping(value="/login")
-    public ModelAndView login(@RequestParam("code") String code, HttpSession session) {
+    public ModelAndView login(@RequestParam("code") String code, HttpSession session) throws IOException {
         ModelAndView mav = new ModelAndView();
         // 1번 인증코드 요청 전달
         String accessToken = kakaoApi.getAccessToken(code);
@@ -57,3 +59,5 @@ public class LoginController {
         return mav;
     }
 }
+
+ */

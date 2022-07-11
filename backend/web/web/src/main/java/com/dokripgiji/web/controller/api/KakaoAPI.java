@@ -1,8 +1,5 @@
 package com.dokripgiji.web.controller.api;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -17,8 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 
+/*
 public class KakaoAPI {
-
 
     public String getAccessToken(String code) {
         String accessToken = "";
@@ -69,7 +66,7 @@ public class KakaoAPI {
     }
 
 
-    public HashMap<String, Object> getUserInfo(String accessToken) {
+    public HashMap<String, Object> getUserInfo(String accessToken) throws IOException {
         HashMap<String, Object> userInfo = new HashMap<String, Object>();
         String reqUrl = "https://kapi.kakao.com/v2/user/me";
         try {
@@ -94,9 +91,9 @@ public class KakaoAPI {
             JSONObject properties = jObject.getJSONObject("properties");
 
             String email = kakaoAccount.getString("email");
-            String nickname = properties.getString("nickname");
+            String name = properties.getString("nickname");
 
-            User user=User.builder().email(email).nickname(nickname).build();
+            User user=User.builder().email(email).name(name).build();
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
@@ -135,3 +132,5 @@ public class KakaoAPI {
     }
 
 }
+
+ */
