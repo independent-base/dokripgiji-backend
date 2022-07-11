@@ -35,7 +35,7 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
                 .name((String) profile.get("nickname"))
                 .email((String) response.get("email"))
-                .attributes(response)
+                .attributes(attributes)
                 .nameAttributeKey(userNameAttributeName)
                 .build();
     }
