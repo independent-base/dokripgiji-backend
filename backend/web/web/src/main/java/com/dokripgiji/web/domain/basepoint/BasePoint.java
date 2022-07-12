@@ -33,6 +33,12 @@ public class BasePoint {
     @Column(nullable = false)
     private Double baseLatitude;
 
+    public void update(String address, Double baseLongitude, Double baseLatitude){
+        this.address = address;
+        this.baseLongitude = baseLongitude;
+        this.baseLatitude = baseLatitude;
+    }
+
     @Builder
     public BasePoint(Long basesId, User user, String address, Double baseLongitude, Double baseLatitude) {
         this.basesId = basesId;
