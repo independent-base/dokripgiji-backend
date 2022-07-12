@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/base")
 public class BasePointController {
 
     private final BasePointService basePointService;
 
-    private final MapboxService mapboxService;
+    // 주소 설정 api
+    @PostMapping(value = "/basepoint/{userId}")
+    public String saveBasePoint(@PathVariable Long userId,@RequestBody BasePointRequestDto requestDto){
+        return basePointService.saveAddress(requestDto);
+    }
 
+    /*
     @PostMapping
     public BasePointResponseDto update(@RequestBody BasePointRequestDto requestDto){
 
@@ -47,7 +51,7 @@ public class BasePointController {
 
         return "등록 실패";
 
-         */
+
     }
 
     //위에 코드가 너무 길어서 임의로 분리했는데, 완성되면 리팩토링하는 과정에서 적절한 위치에 넣어주면 될것 같습니다.
@@ -71,6 +75,8 @@ public class BasePointController {
 
         return coordinatesAddFive.toString();
     }
+
+    */
 
 }
 

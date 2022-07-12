@@ -19,15 +19,36 @@ public class BasePointService {
     private final UserRepository userRepository;
 
     @Autowired
-    private final BasePointRepository addressRepository;
+    private final BasePointRepository basePointRepository;
 
     public BasePointResponseDto buildResponseDto(BasePoint adr){
         return new BasePointResponseDto(adr);
     }
 
     @Transactional
-    public BasePointResponseDto saveAddress(BasePointRequestDto requestDto){
+    public String saveAddress(BasePointRequestDto requestDto){
+        String address =requestDto.getAddress();
+        Double baseLongitude = requestDto.getBaseLongitude();
+        Double baseLatitude = requestDto.getBaseLatitude();
 
+        User user = userRepository.getByUserId(requestDto.getUserId());
+
+        BasePoint basePoint = BasePoint.builder()
+                .user(user)
+                .address(address)
+                .baseLongitude(baseLongitude)
+                .baseLatitude(baseLatitude)
+                .build();
+
+        BasePoint response = basePointRepository.save(basePoint);
+        String statement = "user: " + response.getUser().getUserId() + "\naddress: " +response.getAddress();
+
+        return statement;
+    }
+
+}
+
+        /*
         String address= requestDto.getAddress();
         Double longitude = requestDto.getLongitude();
         Double latitude = requestDto.getLatitude();
@@ -47,6 +68,5 @@ public class BasePointService {
         BasePoint responseAddress = addressRepository.save(basePoint);
 
         return buildResponseDto(responseAddress);
-    }
 
-}
+         */

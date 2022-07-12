@@ -13,6 +13,7 @@ public class BasePointResponseDto {
 
     private Long addressId;
     private User user;
+    private String address;
     private Double baseLongitude;
     private Double baseLatitude;
 
@@ -21,6 +22,7 @@ public class BasePointResponseDto {
     public BasePointResponseDto(BasePoint entity) {
         this.addressId = entity.getBasesId();
         this.user = entity.getUser();
+        this.address = entity.getAddress();
         this.baseLongitude = entity.getBaseLongitude();
         this.baseLatitude = entity.getBaseLongitude();
     }
