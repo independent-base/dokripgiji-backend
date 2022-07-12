@@ -25,27 +25,28 @@ public class BasePointService {
         return new BasePointResponseDto(adr);
     }
 
-
     @Transactional
     public BasePointResponseDto saveAddress(BasePointRequestDto requestDto){
 
+        String address= requestDto.getAddress();
         Double longitude = requestDto.getLongitude();
         Double latitude = requestDto.getLatitude();
         int n = requestDto.getN();
 
         User user = userRepository.getByUserId(requestDto.getUserId());
 
-        BasePoint adr = BasePoint.builder()
+        BasePoint basePoint = BasePoint.builder()
                 .user(user)
+                .address(address)
                 .longitude(longitude)
                 .latitude(latitude)
                 .build();
 
-        System.out.println(requestDto.getUserId());
+//        System.out.println(requestDto.getUserId());
 
-        BasePoint resAdr = addressRepository.save(adr);
+        BasePoint responseAddress = addressRepository.save(basePoint);
 
-        return buildResponseDto(resAdr);
+        return buildResponseDto(responseAddress);
     }
 
 }

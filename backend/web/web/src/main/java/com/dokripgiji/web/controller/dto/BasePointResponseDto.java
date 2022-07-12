@@ -16,6 +16,7 @@ public class BasePointResponseDto {
     private Double baseLongitude;
     private Double baseLatitude;
 
+
     @Builder
     public BasePointResponseDto(BasePoint entity) {
         this.addressId = entity.getBasesId();

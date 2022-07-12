@@ -22,7 +22,7 @@ public class BasePointController {
     @PostMapping
     public BasePointResponseDto update(@RequestBody BasePointRequestDto requestDto){
 
-        System.out.println("requestDto = " + requestDto);
+        System.out.println("requestDto = " + requestDto.getAddress());
         BasePointResponseDto responseDto;
         responseDto = basePointService.saveAddress(requestDto);
         System.out.println(responseDto.getAddressId());
