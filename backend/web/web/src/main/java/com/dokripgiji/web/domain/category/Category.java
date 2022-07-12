@@ -16,7 +16,7 @@ public class Category {
     @Id
     @Column(name = "categoryId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long category_id;
+    private Long categoryId;
 
     @ManyToOne(targetEntity = User.class) //단반향
     @JoinColumn(name = "user", updatable = false)
@@ -26,8 +26,8 @@ public class Category {
     private String code;
 
     @Builder
-    public Category(Long category_id, User user, String code) {
-        this.category_id = category_id;
+    public Category(Long categoryId, User user, String code) {
+        this.categoryId = categoryId;
         this.user = user;
         this.code = code;
     }
