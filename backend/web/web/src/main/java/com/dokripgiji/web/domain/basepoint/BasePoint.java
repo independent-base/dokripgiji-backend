@@ -21,21 +21,21 @@ public class BasePoint {
     @JoinColumn(name = "userId", updatable = false)
     private User user;
 
-    @Column(name = "field",nullable = false)
+    @Column(nullable = false)
     private String address;
 
-    @Column(name = "baseLongitude",nullable = false)
-    private Double longitude;
+    @Column(nullable = false)
+    private Double baseLongitude;
 
-    @Column(name = "baseLatitude",nullable = false)
-    private Double latitude;
+    @Column(nullable = false)
+    private Double baseLatitude;
 
     @Builder
-    public BasePoint(Long basesId, User user, String address, Double longitude, Double latitude) {
+    public BasePoint(Long basesId, User user, String address, Double baseLongitude, Double baseLatitude) {
         this.basesId = basesId;
         this.user = user;
         this.address=address;
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.baseLongitude = baseLongitude;
+        this.baseLatitude = baseLatitude;
     }
 }

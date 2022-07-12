@@ -11,15 +11,13 @@ import lombok.Setter;
 public class BasePointRequestDto {
 
     private Long userId;
-    private Double longitude;
-    private Double latitude;
-    private int n;
+    private Double baseLongitude;
+    private Double baseLatitude;
 
     @Builder
-    public BasePointRequestDto(Long userId, Double longitude, Double latitude, int n) {
+    public BasePointRequestDto(Long userId, Double baseLongitude, Double baseLatitude) {
         this.userId = userId;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.n = n;
+        this.baseLongitude = baseLongitude;
+        this.baseLatitude = baseLatitude;
     }
 }
