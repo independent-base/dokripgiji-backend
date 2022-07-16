@@ -23,16 +23,13 @@ public class CategoryService {
     public Category saveCategory(CategoryDto categoryDto){
 
 
-        System.out.println("1 = " + 1);
         User user = userRepository.getByUserId(categoryDto.getUserId());
         String code= categoryDto.getCode();
-        System.out.println("2 = " + 2);
 
         Category category=Category.builder()
                 .user(user)
                 .code(code)
                 .build();
-        System.out.println("3 = " + 3);
 
         categoryRepository.save(category);
         return category;
