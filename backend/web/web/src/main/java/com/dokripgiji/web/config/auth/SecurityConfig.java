@@ -26,7 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .userInfoEndpoint()
                 .userService(customOAuth2UserService);
-
     }
 
 
